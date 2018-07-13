@@ -19,11 +19,6 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * Tap on the Expo App icon
 * Type `i` in the terminal to start the dev environment again
 
-## Notes
-### 07.13.18
-* Getting API key and doing research on API information.
-* Sketching ideas for wireframes
-
 ## Capstone Proposal
 **Name of Student**: Bobby Martin
 **Name of Project**: NPWD(New Phone Who Dis?) AKA: Who’s Calling?
@@ -44,7 +39,11 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * Firebase
 * GraphQL
 
-
+## Notes
+### 07.13.18
+* Getting API key and doing research on API information.
+* Sketching ideas for wireframes
+![](assets/first-sketch.jpg | width=200)
 
 
 ## Technologies
