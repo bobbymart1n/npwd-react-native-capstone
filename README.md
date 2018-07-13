@@ -45,6 +45,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * Sketching ideas for wireframes
 ![](assets/first-sketch.jpg)
 ![](assets/sketch2.jpg)
+![](assets/sketch3.jpg)
 
 
 ## Technologies
