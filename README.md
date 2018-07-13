@@ -17,7 +17,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 **_If Expo doesn't open automatically on build_** execute the following
 * Swipe right on the home screen
 * Tap on the Expo App icon
-* Type `i` in the terminal to start the emulator again
+* Type `i` in the terminal to start the dev environment again
 
 ## Notes
 ### 07.13.18
