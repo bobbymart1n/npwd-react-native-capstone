@@ -20,21 +20,21 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * Type `i` in the terminal to start the dev environment again
 
 ## Capstone Proposal
-**Name of Student**: Bobby Martin
-**Name of Project**: NPWD(New Phone Who Dis?) AKA: Who’s Calling?
-**Project’s Purpose or Goal**: To let the user enter a phone number and check what type of scam that caller is trying to persuade you with, whether that be tax fraud, insurance fraud, etc. Then let the user post a comment on a public forum with the number and what type of scam it is.
+**Name of Student**: Bobby Martin  
+**Name of Project**: NPWD(New Phone Who Dis?) AKA: Who’s Calling?  
+**Project’s Purpose or Goal**: To let the user enter a phone number and check what type of scam that caller is trying to persuade you with, whether that be tax fraud, insurance fraud, etc. Then let the user post a comment on a public forum with the number and what type of scam it is.  
 **List the absolute minimum features the project requires to meet this purpose or goal**:
 * The user submits a phone number
 * Make a GET request to grab information based on the phone number provided
-* Display that information in the UI
+* Display that information in the UI  
 **What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and yourlanguage) will you use to create this MVP? List them all here. Be specific.**
 * Whitepages PRO API
 * React / React Native
-* Firebase
+* Firebase  
 **If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.**
 * Public forum functionality
 * User Authentication
-* User registration to DoNotCall Registry
+* User registration to DoNotCall Registry  
 **What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?**
 * Firebase
 * GraphQL
