@@ -43,7 +43,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 ### 07.13.18
 * Getting API key and doing research on API information.
 * Sketching ideas for wireframes
-![](assets/first-sketch.jpg | width=200)
+![](assets/first-sketch.jpg){:width="50%"}
 
 
 ## Technologies
