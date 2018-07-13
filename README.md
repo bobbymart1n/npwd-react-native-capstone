@@ -1,5 +1,5 @@
 # NPWD Whos Calling? React Native Capstone
-**A Capstone project built with React Native for Epicodus 06.24.18**
+**A Capstone project built with React Native for Epicodus 07.13.18**
 
 ## By Bobby Martin
 
