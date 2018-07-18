@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { NativeRouter, Route, Link } from 'react-router-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { NativeRouter, Route, Link } from 'react-router-native';
+
+import PhoneInput from './src/components/PhoneInput';
+import PhoneSubmitButton from './src/components/PhoneSubmitButton';
 
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./assets/logo.png')}/>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Image style={styles.image} source={require('./assets/logo.png')}/>
+        <PhoneInput />
+        <PhoneSubmitButton />
       </View>
     );
   }
@@ -22,8 +24,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#C8D5B9',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 30
   },
   image: {
-    width: '80%'
-  }
+    marginBottom: 40
+  },
 });
