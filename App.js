@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import { NativeRouter, Route, Link } from 'react-router-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import PhoneInput from './src/components/PhoneInput';
-import PhoneSubmitButton from './src/components/PhoneSubmitButton';
+import reducer from './src/reducers/reducer'
 
+import Home from './src/components/Home';
+
+const store = createStore(reducer);
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Image style={styles.image} source={require('./assets/logo.png')}/>
-        <PhoneInput />
-        <PhoneSubmitButton />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Home />
+        </View>
+      </Provider>
     );
   }
 }
@@ -25,8 +29,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30
-  },
-  image: {
-    marginBottom: 40
   },
 });
