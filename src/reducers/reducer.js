@@ -16,5 +16,5 @@ const reducer = (state = initialState.testNumber, action) => {
   default:
     return state;
   }
-}
+};
  export default reducer

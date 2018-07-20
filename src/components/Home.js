@@ -33,4 +33,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(Home);
+const mapStateToProps = state => {
+  return {
+    testNumber: state
+  }
+}
+
+export default connect(mapStateToProps)(Home);

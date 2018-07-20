@@ -9,6 +9,7 @@ import reducer from './src/reducers/reducer'
 import Home from './src/components/Home';
 
 const store = createStore(reducer);
+console.log(store.getState());
 
 export default class App extends React.Component {
   render() {

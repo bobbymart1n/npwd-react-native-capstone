@@ -1,5 +1,5 @@
 import types from './../constants';
 
-export const fetchPhoneNumber = (number) => {
+export function fetchPhoneNumber(number) {
   console.log('Hey');
 }
