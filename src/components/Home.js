@@ -6,16 +6,12 @@ import PhoneInput from './PhoneInput';
 import PhoneSubmitButton from './PhoneSubmitButton';
 
 class Home extends React.Component {
-  handleCheckPhoneNumber(number) {
-    const { dispatch } = this.props;
-    dispatch(fetchPhoneNumber(number));
-  }
   render() {
     return (
       <View style={styles.homeContainer}>
         <Image style={styles.image} source={require('./../../assets/logo.png')}/>
         <PhoneInput />
-        <PhoneSubmitButton onPhoneNumberSubmit={this.handleCheckPhoneNumber}/>
+        <PhoneSubmitButton onPhoneNumberSubmit={this.props.handleCheckPhoneNumber}/>
       </View>
     )
   }
@@ -33,10 +29,17 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleCheckPhoneNumber(number) {
+      dispatch(fetchPhoneNumber(number));
+    }
+  }
+}
 const mapStateToProps = state => {
   return {
     testNumber: state
   }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -27,7 +27,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * The user submits a phone number
 * Make a GET request to grab information based on the phone number provided
 * Display that information in the UI  
-**What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and yourlanguage) will you use to create this MVP? List them all here. Be specific.**
+**What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.**
 * Whitepages PRO API
 * React / React Native
 * Firebase  

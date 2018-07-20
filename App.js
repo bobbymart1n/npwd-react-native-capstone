@@ -1,14 +1,20 @@
 import React from 'react';
 import { StyleSheet, View} from 'react-native';
 import { NativeRouter, Route } from 'react-router-native';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import reducer from './src/reducers/reducer'
 
 import Home from './src/components/Home';
 
-const store = createStore(reducer);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  reducer,
+  applyMiddleware(sagaMiddleware)
+);
 console.log(store.getState());
 
 export default class App extends React.Component {
