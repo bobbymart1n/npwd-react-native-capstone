@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
-const PhoneSubmitButton = () => {
+const PhoneSubmitButton = (props) => {
   return (
     <TouchableOpacity
-      style={styles.button}>
+      style={styles.button}
+      onPress={props.onPhoneNumberSubmit}>
       <Text style={styles.buttonText}>Who's Calling?</Text>
     </TouchableOpacity>
   )

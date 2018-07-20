@@ -1,5 +1,6 @@
-import types from './../constants';
-const reducer = (state = {}, action) => {
+import constants from './../constants';
+const { types, initialState } = constants;
+const reducer = (state = initialState.testNumber, action) => {
   switch(action.type) {
   case types.CHECK_NUMBER:
     const { phoneNumber, reputationLevel, reputationDetails, reportCount } = action;
