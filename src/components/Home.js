@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchPhoneNumber } from './../actions';
+import { fetchNumber } from './../actions';
 import PhoneInput from './PhoneInput';
 import PhoneSubmitButton from './PhoneSubmitButton';
 
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCheckPhoneNumber(number) {
-      dispatch(fetchPhoneNumber(number));
+    handleCheckPhoneNumber() {
+      dispatch(fetchNumber());
     }
   }
 }
