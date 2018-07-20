@@ -7,7 +7,7 @@ import PhoneSubmitButton from './PhoneSubmitButton';
 export default class Home extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.homeContainer}>
         <Image style={styles.image} source={require('./../../assets/logo.png')}/>
         <PhoneInput />
         <PhoneSubmitButton />
@@ -18,6 +18,12 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   image: {
-    marginBottom: 40
+    marginBottom: 40,
   },
+  homeContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+  }
 });
