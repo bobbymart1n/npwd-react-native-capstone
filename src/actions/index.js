@@ -10,7 +10,7 @@ export const requestNumber = () => {
 };
 
 export const requestNumberSuccess = (data) => {
-  return { type: types.CHECK_NUMBER_SUCCEEDED, url: data }
+  return { type: types.CHECK_NUMBER_SUCCEEDED, data: data }
 };
 
 export const requestNumberFailed = () => {

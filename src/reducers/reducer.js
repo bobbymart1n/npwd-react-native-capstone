@@ -4,17 +4,16 @@ const reducer = (state = initialState.testNumber, action) => {
   switch(action.type) {
   case types.REQUEST_CHECK:
     return {
-      url: '',
+      data: '',
       error: false
     };
   case types.CHECK_NUMBER_SUCCEEDED:
     return {
-      url: action.url,
-      error: false
+      data: action.data
     };
   case types.CHECK_NUMBER_FAILED:
     return {
-      url: '',
+      data: '',
       error: true
     }
   case types.CHECK_NUMBER:

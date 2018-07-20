@@ -7,8 +7,7 @@ const PhoneSubmitButton = (props) => {
     <Link
       to='/number-details'
       component={TouchableOpacity}
-      style={styles.button}
-      onPress={props.onPhoneNumberSubmit}>
+      style={styles.button}>
       <Text style={styles.buttonText}>Who's Calling?</Text>
     </Link>
   )

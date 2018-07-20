@@ -1,12 +1,22 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
-const PhoneNumberDetails = () => {
+const PhoneNumberDetails = (props) => {
+  console.log(props.testNumber['5558675309']);
   return (
     <View>
-      <Text>Test</Text>
+      <Text>
+        {props.testNumber['5558675309'].phoneNumber}
+      </Text>
     </View>
   );
 }
 
-export default PhoneNumberDetails;
+const mapStateToProps = state => {
+  return {
+    testNumber: state
+  }
+}
+
+export default connect(mapStateToProps)(PhoneNumberDetails);
