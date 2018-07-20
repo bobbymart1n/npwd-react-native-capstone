@@ -14,7 +14,6 @@ function* fetchPhoneNumber() {
   try {
     yield put(requestNumber());
     const data = yield call(getFakeData)
-    console.log(data)
     yield put(requestNumberSuccess(data));
   } catch (error) {
     yield put(requestNumberFailed(error))

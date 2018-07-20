@@ -9,6 +9,7 @@ import reducer from './src/reducers/reducer'
 import watcherTestSaga from './src/sagas/sagas';
 
 import Home from './src/components/Home';
+import PhoneNumberDetails from './src/components/PhoneNumberDetails';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -27,6 +28,7 @@ export default class App extends React.Component {
         <Provider store={store}>
           <View style={styles.container}>
             <Route exact path='/' component={Home} />
+            <Route path='/number-details' component={PhoneNumberDetails} />
           </View>
         </Provider>
       </NativeRouter>

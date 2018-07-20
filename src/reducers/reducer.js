@@ -8,7 +8,6 @@ const reducer = (state = initialState.testNumber, action) => {
       error: false
     };
   case types.CHECK_NUMBER_SUCCEEDED:
-  console.log(action.url);
     return {
       url: action.url,
       error: false

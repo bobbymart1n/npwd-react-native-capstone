@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Link } from 'react-router-native';
 
 const PhoneSubmitButton = (props) => {
   return (
-    <TouchableOpacity
+    <Link
+      to='/number-details'
+      component={TouchableOpacity}
       style={styles.button}
       onPress={props.onPhoneNumberSubmit}>
       <Text style={styles.buttonText}>Who's Calling?</Text>
-    </TouchableOpacity>
+    </Link>
   )
 }
 
