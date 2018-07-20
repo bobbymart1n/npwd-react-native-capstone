@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 const PhoneNumberDetails = (props) => {
@@ -7,11 +7,17 @@ const PhoneNumberDetails = (props) => {
   return (
     <View>
       <Text>
-        {props.testNumber['5558675309'].phoneNumber}
+        {props.testNumber['5558675309'].phoneNumber.toString().split('').map((number, index) => {
+          
+        }).join('')}
       </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+
+});
 
 const mapStateToProps = state => {
   return {
