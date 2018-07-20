@@ -48,6 +48,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 ![](assets/sketch3.jpg)
 ### 07.20.18
 * Watching video on the Generator function to possibly use Sagas [Fun Fun Function | Generators](https://www.youtube.com/watch?v=ategZqxHkz4)
+* Building component tree diagram
 
 
 ## Technologies
