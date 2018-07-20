@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import reducer from './src/reducers/reducer'
+import watcherTestSaga from './src/sagas/sagas';
 
 import Home from './src/components/Home';
 
@@ -16,6 +17,8 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 console.log(store.getState());
+
+sagaMiddleware.run(watcherTestSaga);
 
 export default class App extends React.Component {
   render() {
