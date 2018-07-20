@@ -50,6 +50,7 @@ This project is built with React Native/Redux. It uses the Whitepages PRO Phone 
 * Watching video on the Generator function to possibly use Sagas [Fun Fun Function | Generators](https://www.youtube.com/watch?v=ategZqxHkz4)
 * Building component tree diagram
 ![](assets/capstone-component-tree.png)
+* Reading about Redux Sagas
 
 
 ## Technologies
