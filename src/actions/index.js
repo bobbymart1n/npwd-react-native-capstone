@@ -1,10 +1,6 @@
 import constants from './../constants';
 const { types } = constants;
 
-export const fontLoader = () => {
-  return { type: types.FONT_LOADED }
-};
-
 export const requestNumber = () => {
   return { type: types.REQUEST_CHECK }
 };

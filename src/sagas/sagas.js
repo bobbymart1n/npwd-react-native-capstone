@@ -8,8 +8,7 @@ const getFakeData = () => Promise.resolve(fakeData)
 
 export default function* root() {
   yield [
-    fork(watcherTestSaga),
-    fork(loadFonts)
+    fork(watcherTestSaga)
   ]
 }
 
@@ -17,10 +16,6 @@ function* watcherTestSaga() {
   yield takeEvery(types.FETCHED_NUMBER, fetchPhoneNumber);
 }
 
-function* loadFonts() {
-  console.log('Iterator');
-  yield put(fontLoader());
-}
 
 function* fetchPhoneNumber() {
   try {
