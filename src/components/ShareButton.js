@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FAF3DD',
     fontSize: 20,
+    fontFamily: 'raleway-semi-bold'
   }
 });
 
