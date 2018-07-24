@@ -25,8 +25,10 @@ console.log(store.getState());
 sagaMiddleware.run(root);
 
 class App extends React.Component {
+  state = {
+    fontLoaded: false
+  }
   async componentDidMount() {
-    const iterator = loadFonts();
     await Font.loadAsync({
       'open-sans-reg': require('./assets/fonts/OpenSansRegular.ttf'),
       'open-sans-bold': require('./assets/fonts/OpenSansBold.ttf'),
@@ -43,11 +45,10 @@ class App extends React.Component {
       'raleway-extra-light': require('./assets/fonts/RalewayExtraLight.ttf'),
       'raleway-thin': require('./assets/fonts/RalewayThin.ttf')
     });
-    iterator.next();
-    console.log(store.getState());
+    this.setState({ fontLoaded: true });
   }
   render() {
-    return (
+    return this.state.fontLoaded &&
       <NativeRouter>
         <Provider store={store}>
           <View style={styles.container}>
@@ -56,7 +57,6 @@ class App extends React.Component {
           </View>
         </Provider>
       </NativeRouter>
-    );
   }
 }
 
