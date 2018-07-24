@@ -1,13 +1,25 @@
-import { takeEvery, call, put } from "redux-saga/effects";
-import { requestNumber, requestNumberFailed, requestNumberSuccess } from './../actions';
+import { takeEvery, call, put, fork } from "redux-saga/effects";
+import { requestNumber, requestNumberFailed, requestNumberSuccess, fontLoader } from './../actions';
 import constants from './../constants';
 const { types } = constants;
 import { fakeData } from './../constants/dummyTest';
 
 const getFakeData = () => Promise.resolve(fakeData)
 
+export default function* root() {
+  yield [
+    fork(watcherTestSaga),
+    fork(loadFonts)
+  ]
+}
+
 function* watcherTestSaga() {
   yield takeEvery(types.FETCHED_NUMBER, fetchPhoneNumber);
+}
+
+function* loadFonts() {
+  console.log('Iterator');
+  yield put(fontLoader());
 }
 
 function* fetchPhoneNumber() {
@@ -19,5 +31,3 @@ function* fetchPhoneNumber() {
     yield put(requestNumberFailed(error))
   }
 }
-
-export default watcherTestSaga;

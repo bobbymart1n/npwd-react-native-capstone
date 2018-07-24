@@ -1,9 +1,9 @@
 import constants from './../constants';
 const { types } = constants;
 
-// export const fetchPhoneNumber = (number) => {
-//   return { type: types.CHECK_NUMBER, number: number };
-// }
+export const fontLoader = () => {
+  return { type: types.FONT_LOADED }
+};
 
 export const requestNumber = () => {
   return { type: types.REQUEST_CHECK }

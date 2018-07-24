@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { NativeRouter, Route } from 'react-router-native';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
+import { Font } from 'expo';
+import { fontLoader } from './src/actions';
 
-import reducer from './src/reducers/reducer'
-import watcherTestSaga from './src/sagas/sagas';
+import rootReducer from './src/reducers/index'
+import root from './src/sagas/sagas';
+import loadFonts from './src/sagas/sagas';
 
 import Home from './src/components/Home';
 import PhoneNumberDetails from './src/components/PhoneNumberDetails';
@@ -14,14 +17,35 @@ import PhoneNumberDetails from './src/components/PhoneNumberDetails';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  reducer,
+  rootReducer,
   applyMiddleware(sagaMiddleware)
 );
 console.log(store.getState());
 
-sagaMiddleware.run(watcherTestSaga);
+sagaMiddleware.run(root);
 
-export default class App extends React.Component {
+class App extends React.Component {
+  async componentDidMount() {
+    const iterator = loadFonts();
+    await Font.loadAsync({
+      'open-sans-reg': require('./assets/fonts/OpenSansRegular.ttf'),
+      'open-sans-bold': require('./assets/fonts/OpenSansBold.ttf'),
+      'open-sans-light': require('./assets/fonts/OpenSansLight.ttf'),
+      'open-sans-extra-bold': require('./assets/fonts/OpenSansExtraBold.ttf'),
+      'open-sans-semi-bold': require('./assets/fonts/OpenSansSemibold.ttf'),
+      'raleway-reg': require('./assets/fonts/RalewayRegular.ttf'),
+      'raleway-bold': require('./assets/fonts/RalewayBold.ttf'),
+      'raleway-extra-bold': require('./assets/fonts/RalewayExtraBold.ttf'),
+      'raleway-black': require('./assets/fonts/RalewayBlack.ttf'),
+      'raleway-medium': require('./assets/fonts/RalewayMedium.ttf'),
+      'raleway-semi-bold': require('./assets/fonts/RalewaySemiBold.ttf'),
+      'raleway-light': require('./assets/fonts/RalewayLight.ttf'),
+      'raleway-extra-light': require('./assets/fonts/RalewayExtraLight.ttf'),
+      'raleway-thin': require('./assets/fonts/RalewayThin.ttf')
+    });
+    iterator.next();
+    console.log(store.getState());
+  }
   render() {
     return (
       <NativeRouter>
@@ -45,3 +69,6 @@ const styles = StyleSheet.create({
     padding: 30
   },
 });
+
+
+export default App;

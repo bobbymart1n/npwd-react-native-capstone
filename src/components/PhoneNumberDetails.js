@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
+import ShareButton from './ShareButton';
 
 const PhoneNumberDetails = (props) => {
   const updatedPhoneNumber = () => {
@@ -16,7 +17,7 @@ const PhoneNumberDetails = (props) => {
     return newPhoneNumber;
   }
   return (
-    <View>
+    <View style={styles.shareButton}>
       <Text style={styles.phoneNumber}>
         {updatedPhoneNumber()}
       </Text>
@@ -41,6 +42,7 @@ const PhoneNumberDetails = (props) => {
           <Text>RISK</Text>
         </View>
       </View>
+      <ShareButton/>
     </View>
   );
 }
@@ -70,6 +72,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 50
+  },
+  shareButton: {
+    width: '100%'
   }
 });
 
