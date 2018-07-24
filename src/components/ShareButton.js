@@ -1,15 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-native';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 const ShareButton = () => {
   return (
-    <Link
-      to='/'
-      component={TouchableOpacity}
-      style={styles.button}>
+    <TouchableOpacity style={styles.button}>
       <Text style={styles.buttonText}>Share Number</Text>
-    </Link>
+    </TouchableOpacity>
   );
 }
 
