@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchNumber } from './../actions';
@@ -28,6 +29,10 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 });
+
+Home.propTypes = {
+  handleCheckPhoneNumber: PropTypes.func
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
