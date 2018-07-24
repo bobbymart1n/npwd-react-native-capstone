@@ -1,15 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { NativeRouter, Route } from 'react-router-native';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { Font } from 'expo';
-import { fontLoader } from './src/actions';
-
-import rootReducer from './src/reducers/index'
+import { Router, Scene } from 'react-native-router-flux';
+import rootReducer from './src/reducers/index';
 import root from './src/sagas/sagas';
-import loadFonts from './src/sagas/sagas';
 
 import Home from './src/components/Home';
 import PhoneNumberDetails from './src/components/PhoneNumberDetails';
@@ -49,24 +46,22 @@ class App extends React.Component {
   }
   render() {
     return this.state.fontLoaded &&
-      <NativeRouter>
+      <Router>
         <Provider store={store}>
-          <View style={styles.container}>
-            <Route exact path='/' component={Home} />
-            <Route path='/number-details' component={PhoneNumberDetails} />
-          </View>
+          <Scene key='root'>
+            <Scene key='home' component={Home} title='Home' initial={true} />
+            <Scene key='details' component={PhoneNumberDetails} title='Number Details '/>
+          </Scene>
         </Provider>
-      </NativeRouter>
+      </Router>
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#C8D5B9',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 30
   },
 });
 
