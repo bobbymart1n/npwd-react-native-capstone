@@ -14,5 +14,6 @@ export const requestNumberFailed = () => {
 };
 
 export const fetchNumber = () => {
+  console.log('Start Watcher');
   return { type: types.FETCHED_NUMBER }
 };
