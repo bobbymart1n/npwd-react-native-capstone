@@ -21,27 +21,30 @@ const PhoneNumberDetails = (props) => {
       <Text style={styles.phoneNumber}>
         {updatedPhoneNumber()}
       </Text>
-      <View style={styles.detailsContainer}>
-        <View style={styles.phoneRep}>
-          <View style={styles.detailInfo}>
-            <Text>Reputation</Text>
-            <Text>3</Text>
+      {Object.keys(props.testNumber).map((numberId, index) => {
+        let number = props.testNumber[numberId];
+        return <View style={styles.detailsContainer} key={index}>
+          <View style={styles.phoneRep}>
+            <View style={styles.detailInfo}>
+              <Text>Reputation</Text>
+              <Text>{number.reputationLevel}</Text>
+            </View>
+            <View style={styles.detailInfo}>
+              <Text>Score</Text>
+              <Text>{number.reputationDetails.score}</Text>
+            </View>
+            <View style={styles.detailInfo}>
+              <Text>Report Count</Text>
+              <Text>{number.reportCount}</Text>
+            </View>
           </View>
+          <Text style={styles.scamType}>{number.reputationDetails.category}</Text>
           <View style={styles.detailInfo}>
-            <Text>Score</Text>
-            <Text>75</Text>
-          </View>
-          <View style={styles.detailInfo}>
-            <Text>Report Count</Text>
-            <Text>8</Text>
+            <Text>This number is a</Text>
+            <Text>{number.reputationDetails.type}</Text>
           </View>
         </View>
-        <Text style={styles.scamType}>IRS Scam</Text>
-        <View style={styles.detailInfo}>
-          <Text>This number is a</Text>
-          <Text>RISK</Text>
-        </View>
-      </View>
+      })}
       <ShareButton/>
     </View>
   );
@@ -50,7 +53,9 @@ const PhoneNumberDetails = (props) => {
 const styles = StyleSheet.create({
   phoneNumber: {
     fontSize: 50,
-    marginBottom: 30
+    marginBottom: 30,
+    fontFamily: 'open-sans-extra-bold',
+    color: '#4A7C59'
   },
   detailInfo: {
     display: 'flex',
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    testNumber: state
+    testNumber: state.phoneNumberDetails
   }
 }
 
