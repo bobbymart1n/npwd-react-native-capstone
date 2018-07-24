@@ -1,16 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { Link } from 'react-router-native';
+import { Actions } from 'react-native-router-flux';
 
 const PhoneSubmitButton = (props) => {
+  function handleSubmit() {
+    props.onPhoneNumberSubmit();
+    Actions.details();
+  }
   return (
-    <Link
-      to='/number-details'
-      component={TouchableOpacity}
-      style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
       <Text style={styles.buttonText}>Who's Calling?</Text>
-    </Link>
+    </TouchableOpacity>
   )
+}
+
+PhoneSubmitButton.propTypes = {
+  onPhoneNumberSubmit: PropTypes.func
 }
 
 const styles = StyleSheet.create({
