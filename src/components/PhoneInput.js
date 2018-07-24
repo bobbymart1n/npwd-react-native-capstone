@@ -12,7 +12,8 @@ const PhoneInput = () => {
 
 const styles = StyleSheet.create({
   numberInput: {
-    backgroundColor: '#FAF3DD',
+    borderColor: '#4A7C59',
+    borderWidth: 1,
     fontFamily: 'raleway-extra-light',
     height: 50,
     width: '100%',
