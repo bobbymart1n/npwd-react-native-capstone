@@ -1,13 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, TextInput } from 'react-native';
 
-const PhoneInput = () => {
+const PhoneInput = (props) => {
   return (
     <TextInput
+      onChangeText={(input) => props.onPhoneNumberSubmit(parseInt(input))}
       style={styles.numberInput}
       placeholder='Enter a phone number'
-      keyboardType='numeric'></TextInput>
+      keyboardType='phone-pad'
+      textContentType={'telephoneNumber'}></TextInput>
   )
+}
+
+PhoneInput.propTypes = {
+  onPhoneNumberSubmit: PropTypes.func
 }
 
 const styles = StyleSheet.create({
