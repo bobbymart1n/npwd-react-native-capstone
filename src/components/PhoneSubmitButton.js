@@ -4,9 +4,9 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const PhoneSubmitButton = (props) => {
-  async function handleSubmit() {
+  function handleSubmit() {
     props.onPhoneNumberSubmit();
-    await Actions.details();
+    Actions.details({type: 'reset'})
   }
   return (
     <TouchableOpacity style={styles.button} onPress={handleSubmit}>

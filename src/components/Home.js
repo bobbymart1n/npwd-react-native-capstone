@@ -23,10 +23,6 @@ const styles = StyleSheet.create({
   image: {
     marginBottom: 40,
   },
-  flex : {
-    flex: 1,
-    width: '100%'
-  },
   inputAndButton: {
     height: 'auto'
   },

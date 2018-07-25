@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider, connect } from 'react-redux';
 import { Font } from 'expo';
@@ -13,12 +13,14 @@ import PhoneNumberDetails from './src/components/PhoneNumberDetails';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const ReduxRouter = connect()(Router)
-
-const store = compose(
+const store = createStore(
+  rootReducer,
   applyMiddleware(sagaMiddleware)
-)(createStore)(rootReducer);
-console.log(store.getState());
+);
+
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
 
 sagaMiddleware.run(root);
 
@@ -48,12 +50,12 @@ class App extends React.Component {
   render() {
     return this.state.fontLoaded &&
     <Provider store={store}>
-      <ReduxRouter>
-        <Scene key='root'>
-          <Scene key='home' component={Home} title='Home' initial={true} />
-          <Scene key='details' component={PhoneNumberDetails} title='Number Details '/>
+      <Router>
+        <Scene key='root' hideNavBar={true}>
+          <Scene key='home' component={Home} title='Home' direction='horizontal' initial={true} />
+          <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} title='Number Details '/>
         </Scene>
-      </ReduxRouter>
+      </Router>
     </Provider>
   }
 }
