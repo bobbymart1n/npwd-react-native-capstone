@@ -68,12 +68,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   phoneRep: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   detailsContainer: {
     display: 'flex',
+    alignItems: 'center',
+    width: '100%',
     padding: 20,
     borderRadius: 8,
     backgroundColor: '#FAF3DD'
