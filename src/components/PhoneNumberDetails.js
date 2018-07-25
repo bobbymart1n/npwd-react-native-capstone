@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import ShareButton from './ShareButton';
 
-const PhoneNumberDetails = (props) => {
-  const updatedPhoneNumber = () => {
+class PhoneNumberDetails extends React.Component {
+  updatedPhoneNumber = () => {
     let areaCode = ['('];
     let firstThree = [];
     let lastFour = [];
-    props.testNumber['5558675309'].phoneNumber.toString().split('').map((number, index) => {
+    this.props.testNumber['5558675309'].phoneNumber.toString().split('').map((number, index) => {
       index < 3 ? areaCode.push(number) : index > 2 && index < 6 ? firstThree.push(number) : lastFour.push(number);
     });
     areaCode.push(')');
@@ -16,38 +17,43 @@ const PhoneNumberDetails = (props) => {
     let newPhoneNumber = areaCode.concat(firstThree).concat(lastFour).join('');
     return newPhoneNumber;
   }
-  return (
-    <View style={styles.shareButton}>
+  componentDidMount() {
+    this.updatedPhoneNumber();
+  }
+  render() {
+    return (
+      <View style={styles.shareButton}>
       <Text style={styles.phoneNumber}>
-        {updatedPhoneNumber()}
       </Text>
-      {Object.keys(props.testNumber).map((numberId, index) => {
-        let number = props.testNumber[numberId];
+      {Object.keys(this.props.testNumber).map((numberId, index) => {
+        let number = this.props.testNumber[numberId];
+
         return <View style={styles.detailsContainer} key={index}>
-          <View style={styles.phoneRep}>
-            <View style={styles.detailInfo}>
-              <Text>Reputation</Text>
-              <Text>{number.reputationLevel}</Text>
-            </View>
-            <View style={styles.detailInfo}>
-              <Text>Score</Text>
-              <Text>{number.reputationDetails.score}</Text>
-            </View>
-            <View style={styles.detailInfo}>
-              <Text>Report Count</Text>
-              <Text>{number.reportCount}</Text>
-            </View>
-          </View>
-          <Text style={styles.scamType}>{number.reputationDetails.category}</Text>
-          <View style={styles.detailInfo}>
-            <Text>This number is a</Text>
-            <Text>{number.reputationDetails.type}</Text>
-          </View>
+        <View style={styles.phoneRep}>
+        <View style={styles.detailInfo}>
+        <Text>Reputation</Text>
+        <Text>{number.reputationLevel}</Text>
+        </View>
+        <View style={styles.detailInfo}>
+        <Text>Score</Text>
+        <Text>{number.reputationDetails.score}</Text>
+        </View>
+        <View style={styles.detailInfo}>
+        <Text>Report Count</Text>
+        <Text>{number.reportCount}</Text>
+        </View>
+        </View>
+        <Text style={styles.scamType}>{number.reputationDetails.category}</Text>
+        <View style={styles.detailInfo}>
+        <Text>This number is a</Text>
+        <Text>{number.reputationDetails.type}</Text>
+        </View>
         </View>
       })}
       <ShareButton/>
-    </View>
-  );
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -82,6 +88,10 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 });
+
+PhoneNumberDetails.propTypes = {
+  testNumber: PropTypes.object
+}
 
 const mapStateToProps = state => {
   return {
