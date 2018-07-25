@@ -5,18 +5,19 @@ import { Actions } from 'react-native-router-flux';
 
 const PhoneSubmitButton = (props) => {
   function handleSubmit() {
-    props.onPhoneNumberSubmit();
-    Actions.details({type: 'reset'})
+    props.onPhoneNumberSubmit(props.statePhoneNumber);
+    Actions.details()
   }
   return (
-    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+    <TouchableOpacity style={styles.button} onPress={handleSubmit} type='submit'>
       <Text style={styles.buttonText}>Who's Calling?</Text>
     </TouchableOpacity>
   )
 }
 
 PhoneSubmitButton.propTypes = {
-  onPhoneNumberSubmit: PropTypes.func
+  onPhoneNumberSubmit: PropTypes.func,
+  statePhoneNumber: PropTypes.number,
 }
 
 const styles = StyleSheet.create({
