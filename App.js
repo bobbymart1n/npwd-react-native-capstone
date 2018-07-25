@@ -53,7 +53,7 @@ class App extends React.Component {
       <Router>
         <Scene key='root' hideNavBar={true}>
           <Scene key='home' component={Home} title='Home' direction='horizontal' initial={true} />
-          <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} title='Number Details '/>
+          <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} title='Number Details' backButtonImage='./assets/back-button.png'/>
         </Scene>
       </Router>
     </Provider>
