@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchNumber } from './../actions';
+import { phoneNumberEntry } from './../actions';
 import PhoneInput from './PhoneInput';
 import PhoneSubmitButton from './PhoneSubmitButton';
 
@@ -11,8 +12,9 @@ class Home extends React.Component {
     return (
       <View style={styles.homeContainer}>
         <Image style={styles.image} source={require('./../../assets/logo.png')}/>
-        <PhoneInput />
+        <PhoneInput onPhoneNumberSubmit={this.props.handleInputText} />
         <PhoneSubmitButton
+          statePhoneNumber={this.props.phoneNumber}
           onPhoneNumberSubmit={this.props.handleCheckPhoneNumber}/>
       </View>
     )
@@ -43,14 +45,18 @@ Home.propTypes = {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCheckPhoneNumber() {
-      dispatch(fetchNumber());
+    handleInputText(phoneNumber) {
+      dispatch(phoneNumberEntry(phoneNumber));
+    },
+    handleCheckPhoneNumber(number) {
+      dispatch(fetchNumber(number));
     }
   }
 }
 const mapStateToProps = state => {
   return {
-    testNumber: state
+    testNumber: state,
+    phoneNumber: state.phoneNumber
   }
 }
 
