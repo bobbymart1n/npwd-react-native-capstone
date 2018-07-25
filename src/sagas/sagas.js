@@ -20,7 +20,6 @@ function* fetchPhoneNumber(number) {
     const data = yield call(() => {
       return fetch('https://proapi.whitepages.com/3.0/phone_reputation?api_key=' + apiKey + '&phone.country_hint=US&phone=' + number.number).then(res => res.json());
     });
-    console.log(data);
     yield put(requestNumberSuccess(data));
   } catch (error) {
     yield put(requestNumberFailed(error))

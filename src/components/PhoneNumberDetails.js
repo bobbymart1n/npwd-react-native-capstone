@@ -8,11 +8,9 @@ const PhoneNumberDetails = (props) => {
       let areaCode = ['('];
       let firstThree = [];
       let lastFour = [];
-      Object.keys(props.testNumber.testNumber).map((numberId) => {
-        let newNumber = props.testNumber.testNumber[numberId];
-        return newNumber.phoneNumber.toString().split('').map((number, index) => {
-          index < 3 ? areaCode.push(number) : index > 2 && index < 6 ? firstThree.push(number) : lastFour.push(number);
-        });
+      console.log(props.phoneNumberResponse)
+      props.phoneNumberResponse.phone_number.split('').map((number, index) => {
+        index < 3 ? areaCode.push(number) : index > 2 && index < 6 ? firstThree.push(number) : lastFour.push(number);
       })
       areaCode.push(')');
       firstThree.push('-');
@@ -22,35 +20,33 @@ const PhoneNumberDetails = (props) => {
     return (
       <View style={styles.shareButton}>
         <Text style={styles.phoneNumber}>
-        {props.testNumber !== '' ? updatedPhoneNumber() : null}
+        {props.phoneNumberResponse !== '' ? updatedPhoneNumber() : null}
         </Text>
-        {Object.keys(props.testNumber).map((numberId, index) => {
-          let number = props.testNumber[numberId];
-          return Object.keys(number).map((data) => {
-            let numberResult = number[data];
-            return <View style={styles.detailsContainer} key={index}>
+        <View style={styles.detailsContainer}>
+          {props.phoneNumberResponse !== '' ?
+            <View style={styles.flex}>
               <View style={styles.phoneRep}>
                 <View style={styles.detailInfo}>
                   <Text>Reputation</Text>
-                  <Text>{numberResult.reputationLevel}</Text>
+                  <Text>{props.phoneNumberResponse.reputation_level}</Text>
                 </View>
                 <View style={styles.detailInfo}>
                   <Text>Score</Text>
-                  <Text>{numberResult.reputationDetails.score}</Text>
+                  <Text>{props.phoneNumberResponse.reputation_details.score}</Text>
                 </View>
                 <View style={styles.detailInfo}>
                   <Text>Report Count</Text>
-                  <Text>{numberResult.reportCount}</Text>
+                  <Text>{props.phoneNumberResponse.report_count}</Text>
                 </View>
               </View>
-              <Text style={styles.scamType}>{numberResult.reputationDetails.category}</Text>
+              <Text style={styles.scamType}>{props.phoneNumberResponse.reputation_details.category}</Text>
               <View style={styles.detailInfo}>
                 <Text>This number is a</Text>
-                <Text>{numberResult.reputationDetails.type}</Text>
+                <Text>{props.phoneNumberResponse.reputation_details.type}</Text>
               </View>
             </View>
-          })
-        })}
+            : <View style={styles.flex}><Text>Loading...</Text></View>}
+        </View>
         <ShareButton/>
       </View>
   );
@@ -62,6 +58,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     fontFamily: 'open-sans-extra-bold',
     color: '#4A7C59'
+  },
+  flex: {
+    flex: 1
   },
   detailInfo: {
     display: 'flex',
@@ -75,6 +74,7 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     display: 'flex',
+    flex: 1,
     alignItems: 'center',
     width: '100%',
     padding: 20,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    testNumber: state.phoneNumberDetails.data
+    phoneNumberResponse: state.phoneNumberDetails.data
   }
 }
 
