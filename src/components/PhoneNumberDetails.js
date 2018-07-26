@@ -17,6 +17,14 @@ const PhoneNumberDetails = (props) => {
       let newPhoneNumber = areaCode.concat(firstThree).concat(lastFour).join('');
       return newPhoneNumber;
     }
+    const addSpaceToCategory = (str) => {
+      str = props.phoneNumberResponse.reputation_details.type;
+      let strArr = str.split('').map((letter, index) => {
+        return letter === letter.toUpperCase() ? ' ' + letter : letter
+      });
+      const newStr = strArr.join('').trim()
+      return newStr
+    }
     return (
       <View style={styles.shareButton}>
         <Text style={styles.phoneNumber}>
@@ -42,7 +50,7 @@ const PhoneNumberDetails = (props) => {
               <Text style={styles.scamType}>{props.phoneNumberResponse.reputation_details.category}</Text>
               <View style={styles.detailInfo}>
                 <Text>This number is a</Text>
-                <Text>{props.phoneNumberResponse.reputation_details.type}</Text>
+                <Text>{addSpaceToCategory()}</Text>
               </View>
             </View>
             : <View style={styles.flex}><Text>Loading...</Text></View>}
@@ -55,12 +63,15 @@ const PhoneNumberDetails = (props) => {
 const styles = StyleSheet.create({
   phoneNumber: {
     fontSize: 50,
-    marginBottom: 30,
     fontFamily: 'open-sans-extra-bold',
     color: '#4A7C59'
   },
   flex: {
-    flex: 1
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
   },
   detailInfo: {
     display: 'flex',
@@ -70,6 +81,7 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
   detailsContainer: {
