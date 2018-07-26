@@ -18,10 +18,6 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
-
 sagaMiddleware.run(root);
 
 class App extends React.Component {
@@ -50,10 +46,10 @@ class App extends React.Component {
   render() {
     return this.state.fontLoaded &&
     <Provider store={store}>
-      <Router>
-        <Scene key='root' hideNavBar={true}>
-          <Scene key='home' component={Home} title='Home' direction='horizontal' initial={true} />
-          <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} title='Number Details' backButtonImage='./assets/back-button.png'/>
+      <Router navigationBarStyle={{ borderBottomColor: 'transparent', backgroundColor: '#F9F9F9' }}>
+        <Scene key='root'>
+          <Scene key='home' component={Home} direction='horizontal' initial={true} />
+          <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} />
         </Scene>
       </Router>
     </Provider>

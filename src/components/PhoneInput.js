@@ -19,9 +19,9 @@ PhoneInput.propTypes = {
 
 const styles = StyleSheet.create({
   numberInput: {
-    borderColor: '#4A7C59',
+    borderColor: '#1B4965',
     borderWidth: 1,
-    fontFamily: 'raleway-extra-light',
+    fontFamily: 'open-sans-light',
     height: 50,
     width: '100%',
     borderRadius: 5,

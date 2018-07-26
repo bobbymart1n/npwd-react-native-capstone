@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   homeContainer: {
     display: 'flex',
-    backgroundColor: '#FAF3DD',
+    backgroundColor: '#F9F9F9',
     padding: 30,
     flex: 1,
     justifyContent: 'center',
