@@ -5,7 +5,6 @@ const reducer = (state = {}, action) => {
   case types.REQUEST_CHECK:
     return {
       data: '',
-      number: action.number,
       error: false
     };
   case types.CHECK_NUMBER_SUCCEEDED:

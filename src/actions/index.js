@@ -1,8 +1,8 @@
 import constants from './../constants';
 const { types } = constants;
 
-export const requestNumber = (number) => {
-  return { type: types.REQUEST_CHECK, number: number }
+export const requestNumber = () => {
+  return { type: types.REQUEST_CHECK }
 };
 
 export const requestNumberSuccess = (resolve) => {
