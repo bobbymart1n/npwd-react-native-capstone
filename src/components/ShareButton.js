@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-const ShareButton = () => {
-  return (
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.buttonText}>Share Number</Text>
-    </TouchableOpacity>
-  );
-}
+const ShareButton = () => (
+  <TouchableOpacity style={styles.button} onPress={() => Actions.reports()}>
+    <Text style={styles.buttonText}>Share Number</Text>
+  </TouchableOpacity>
+);
+
 
 const styles = StyleSheet.create({
   button: {
