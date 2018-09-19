@@ -10,6 +10,7 @@ import root from './src/sagas/sagas';
 
 import Home from './src/components/Home';
 import PhoneNumberDetails from './src/components/PhoneNumberDetails';
+import OtherReports from './src/components/OtherReports';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -50,6 +51,7 @@ class App extends React.Component {
         <Scene key='root'>
           <Scene key='home' component={Home} direction='horizontal' initial={true} />
           <Scene key='details' component={PhoneNumberDetails} direction='horizontal' duration={2} />
+          <Scene key='reports' component={OtherReports} direction='horizontal' duration={2} />
         </Scene>
       </Router>
     </Provider>
