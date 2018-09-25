@@ -6,6 +6,11 @@ const results = (state = {}, action) => {
     case types.POST_NUMBER_RESULTS:
       return {
         ...state,
+        data: ''
+      }
+    case types.POST_NUMBER_RESULTS_SUCCESS:
+      return {
+        ...state,
         data: action.data
       }
     default:

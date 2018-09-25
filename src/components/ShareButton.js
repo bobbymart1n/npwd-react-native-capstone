@@ -1,13 +1,28 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { requestResults } from './../actions';
 
-const ShareButton = () => (
-  <TouchableOpacity style={styles.button} onPress={() => Actions.reports()}>
-    <Text style={styles.buttonText}>Share Number</Text>
-  </TouchableOpacity>
-);
+const ShareButton = (props) => {
+  const handleShareResults = () => {
+    props.handleRequestResults();
+    Actions.reports();
+  }
+  return (
+    <TouchableOpacity style={styles.button} onPress={() => handleShareResults()}>
+      <Text style={styles.buttonText}>Share Number</Text>
+    </TouchableOpacity>
+  )
+};
 
+const mapDispatchToProps = dispatch => {
+  return {
+    handleRequestResults() {
+      dispatch(requestResults());
+    }
+  }
+}
 
 const styles = StyleSheet.create({
   button: {
@@ -28,4 +43,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ShareButton
+export default connect(null, mapDispatchToProps)(ShareButton)
