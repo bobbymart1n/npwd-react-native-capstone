@@ -24,6 +24,16 @@ const PhoneNumberDetails = (props) => {
       const newStr = strArr.join('').trim()
       return newStr
     }
+    const phoneNumberData = () => {
+      return {
+        phoneNumberDetails: {
+          phoneNumber: updatedPhoneNumber(),
+          riskType: addSpaceToCategory(),
+          reportCount: props.phoneNumberResponse.report_count,
+          category: props.phoneNumberResponse.category,
+        }
+      }
+    }
     return (
       <View style={styles.shareButton}>
         <Text style={styles.phoneNumber}>
@@ -54,7 +64,7 @@ const PhoneNumberDetails = (props) => {
             </View>
             : <View style={styles.flex}><Text>Loading...</Text></View>}
         </View>
-        <ShareButton style={styles.actualShareButton}/>
+        <ShareButton style={styles.actualShareButton} phoneNumberDetails={phoneNumberData}/>
       </View>
   );
 }

@@ -28,11 +28,9 @@ function* fetchPhoneNumber(number) {
 
 function* fetchResults() {
   try {
-    // yield put(requestResults())
     const data = yield call(() => {
       return fetch(`https://capstone-backend.firebaseapp.com/api/v1/numbers`).then(res => res.json());
     })
-    console.log(data);
     yield put(requestResultsSuccess(data));
   } catch (error) {
     console.log(error);
