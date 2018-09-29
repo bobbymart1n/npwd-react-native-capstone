@@ -30,7 +30,7 @@ const PhoneNumberDetails = (props) => {
           phoneNumber: updatedPhoneNumber(),
           riskType: addSpaceToCategory(),
           reportCount: props.phoneNumberResponse.report_count,
-          category: props.phoneNumberResponse.category,
+          category: props.phoneNumberResponse.reputation_details.category,
         }
       }
     }

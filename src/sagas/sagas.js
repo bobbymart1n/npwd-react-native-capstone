@@ -10,7 +10,7 @@ export default function* root() {
 
 function* watcherTestSaga() {
   yield takeEvery(types.FETCHED_NUMBER, fetchPhoneNumber);
-  yield takeEvery(types.POST_NUMBER_RESULTS, fetchResults);
+  yield takeEvery(types.GET_NUMBER_RESULTS, fetchResults);
 }
 
 function* fetchPhoneNumber(number) {
@@ -25,7 +25,7 @@ function* fetchPhoneNumber(number) {
     yield put(requestNumberFailed(error))
   }
 }
-
+// Fetches numbers in the database
 function* fetchResults() {
   try {
     const data = yield call(() => {
@@ -35,4 +35,9 @@ function* fetchResults() {
   } catch (error) {
     console.log(error);
   }
+}
+
+// POSTS numbers to the data base
+function* postResults() {
+
 }

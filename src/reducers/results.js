@@ -3,12 +3,12 @@ const { types, initialState } = constants;
 
 const results = (state = {}, action) => {
   switch(action.type) {
-    case types.POST_NUMBER_RESULTS:
+    case types.GET_NUMBER_RESULTS:
       return {
         ...state,
         data: ''
       }
-    case types.POST_NUMBER_RESULTS_SUCCESS:
+    case types.GET_NUMBER_RESULTS_SUCCESS:
       return {
         ...state,
         data: action.data

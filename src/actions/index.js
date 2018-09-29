@@ -18,11 +18,12 @@ export const requestNumberFailed = () => {
   return { type: types.CHECK_NUMBER_FAILED }
 };
 
+// GET numbers from database
 export const requestResults = () => {
-  return { type: types.POST_NUMBER_RESULTS }
+  return { type: types.GET_NUMBER_RESULTS }
 }
 export const requestResultsSuccess = (resolve) => {
-  return { type: types.POST_NUMBER_RESULTS_SUCCESS, data: resolve }
+  return { type: types.GET_NUMBER_RESULTS_SUCCESS, data: resolve }
 }
 
 // Stores user entered phone number
