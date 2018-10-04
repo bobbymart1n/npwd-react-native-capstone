@@ -47,11 +47,9 @@ function* postResults(numberData) {
     },
     body: JSON.stringify(numberData)
   })
-  yield put(postNumberResultSuccess(response));
 }
 
 function* addNewNumberToResults(results) {
-  console.log(results);
   try {
     yield postResults(results.numberResults)
   } catch (error) {
