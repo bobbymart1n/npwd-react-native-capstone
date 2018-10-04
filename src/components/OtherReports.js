@@ -23,7 +23,7 @@ class OtherReports extends Component {
 };
 
 OtherReports.propTypes = {
-  reports: PropTypes.shape({})
+  reports: PropTypes.string.isRequired
 }
 
 const styles = StyleSheet.create({
