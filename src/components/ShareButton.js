@@ -8,7 +8,6 @@ import { postNumberResults } from './../actions';
 const ShareButton = (props) => {
   const handleShareResults = () => {
     props.handleRequestResults(props.phoneNumberDetails());
-    console.log(props.phoneNumberDetails());
     Actions.reports();
   }
   return (
