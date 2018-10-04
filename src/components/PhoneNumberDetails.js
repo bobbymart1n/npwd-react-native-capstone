@@ -64,7 +64,7 @@ const PhoneNumberDetails = (props) => {
             </View>
             : <View style={styles.flex}><Text>Loading...</Text></View>}
         </View>
-        <ShareButton style={styles.actualShareButton} phoneNumberDetails={phoneNumberData}/>
+        <ShareButton style={styles.actualShareButton} phoneNumberDetails={phoneNumberData} />
       </View>
   );
 }
