@@ -30,9 +30,6 @@ export const requestResultsSuccess = (resolve) => {
 export const postNumberResults = (results) => {
   return { type: types.POST_NUMBER_RESULTS, numberResults: results }
 }
-export const postNumberResultsSuccess = (resolve) => {
-  return { type: types.POST_NUMBER_RESULTS_SUCCESS, data: resolve }
-}
 
 // Stores user entered phone number
 export const phoneNumberEntry = (number) => {
