@@ -18,7 +18,7 @@ class OtherReports extends Component {
               reportCount={reportItem.reportCount}
               phoneNumber={reportItem.phoneNumber}
               category={reportItem.category} />
-        }) : "Loading..."}
+          }) : <View style={{flex: 1}}><Text style={styles.loadingText}>Loading...</Text></View>}
       </ScrollView>
     )
   }
@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexGrow: 1,
     padding: 30,
+  },
+  loadingText: {
+    marginTop: 30,
+    fontSize: 18,
+    fontFamily: 'open-sans-reg'
   },
   pageTitle: {
     fontSize: 36,
