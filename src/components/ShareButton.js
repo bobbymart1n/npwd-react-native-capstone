@@ -3,10 +3,11 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { requestResults } from './../actions';
+import { postNumberResults } from './../actions';
 
 const ShareButton = (props) => {
   const handleShareResults = () => {
-    props.handleRequestResults();
+    props.handleRequestResults(props.phoneNumberDetails());
     console.log(props.phoneNumberDetails());
     Actions.reports();
   }
@@ -19,7 +20,8 @@ const ShareButton = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleRequestResults() {
+    handleRequestResults(data) {
+      dispatch(postNumberResults(data))
       dispatch(requestResults());
     }
   }
