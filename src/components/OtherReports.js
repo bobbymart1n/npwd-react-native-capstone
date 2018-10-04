@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Text } from 'react-native';
 import ReportItem from './ReportItem';
@@ -20,6 +21,10 @@ class OtherReports extends Component {
     )
   }
 };
+
+OtherReports.propTypes = {
+  reports: PropTypes.shape({})
+}
 
 const styles = StyleSheet.create({
   reports: {
