@@ -26,12 +26,10 @@ const PhoneNumberDetails = (props) => {
     }
     const phoneNumberData = () => {
       return {
-        phoneNumberDetails: {
-          phoneNumber: updatedPhoneNumber(),
-          riskType: addSpaceToCategory(),
-          reportCount: props.phoneNumberResponse.report_count,
-          category: props.phoneNumberResponse.reputation_details.category,
-        }
+        phoneNumber: updatedPhoneNumber(),
+        riskType: addSpaceToCategory(),
+        reportCount: props.phoneNumberResponse.report_count,
+        category: props.phoneNumberResponse.reputation_details.category,
       }
     }
     return (
